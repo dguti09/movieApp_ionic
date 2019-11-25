@@ -1,9 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>tab4</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="dark">
+        <ion-title>Top Trending</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-segment (ionChange)="changeButton($event)">
+        <ion-segment-button checked value="1">
+            <ion-label>Diario</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="2">
+            <ion-label>Semanal</ion-label>
+        </ion-segment-button>
+    </ion-segment>
 
+  <app-show-movie-component [items]="movies"></app-show-movie-component>
 </ion-content>
