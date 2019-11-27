@@ -15,27 +15,19 @@ export class Tab1Page {
         // this.loadPage();
     }
 
-    getWeek() {
-        this.moviesProvider.trendingWeek().subscribe(
-            (data) => {
-                this.movies = data.movies;
-                console.log(this.movies);
-            },
-            (e) => {
-                console.log(e);
-            }
-        );
-    }
-
-    getDay() {
-        this.moviesProvider.trendingDay().subscribe(
-            (data) => {
-                this.movies = data.movies;
-                console.log(this.movies);
-            },
-            (e) => {
-                console.log(e);
-            }
-        );
+    searchMovie(keyword: string) {
+        if (keyword.length !== 0) {
+            this.moviesProvider.searchMovie(keyword).subscribe(
+                (data) => {
+                    this.movies = data['movies'];
+                    console.log(this.movies);
+                },
+                (e) => {
+                    console.log(e);
+                }
+            );
+        } else {
+          this.movies = null;
+        }
     }
 }

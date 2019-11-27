@@ -17,7 +17,7 @@ export class Tab4Page implements OnInit {
 
     changeButton(item) {
         console.log('cambia', item.detail.value);
-        if (item.detail.value === "1") {
+        if (item.detail.value === '1') {
           this.getDay();
         } else {
           this.getWeek();
@@ -27,7 +27,7 @@ export class Tab4Page implements OnInit {
     getWeek() {
         this.moviesProvider.trendingWeek().subscribe(
             (data) => {
-                this.movies = data.movies;
+                this.movies = data['movies'];
                 console.log(this.movies);
             },
             (e) => {
@@ -39,7 +39,7 @@ export class Tab4Page implements OnInit {
     getDay() {
         this.moviesProvider.trendingDay().subscribe(
             (data) => {
-                this.movies = data.movies;
+                this.movies = data['movies'];
                 console.log(this.movies);
             },
             (e) => {
