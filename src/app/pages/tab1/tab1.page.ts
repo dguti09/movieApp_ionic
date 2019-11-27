@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {MoviesMagnamentProvider} from '../../../providers/MoviesMagnament.provider';
-import {MovieModel} from "../../models/Movie.model";
+import {MovieModel} from '../../models/Movie.model';
 
 @Component({
     selector: 'app-tab1',
@@ -20,7 +20,6 @@ export class Tab1Page {
             this.moviesProvider.searchMovie(keyword).subscribe(
                 (data) => {
                     this.movies = data['movies'];
-                    console.log(this.movies);
                 },
                 (e) => {
                     console.log(e);

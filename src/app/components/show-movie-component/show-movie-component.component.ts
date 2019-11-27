@@ -12,4 +12,8 @@ export class ShowMovieComponentComponent implements OnInit {
 
   ngOnInit() {}
 
+  goToMovie(movieId: number) {
+    console.log(movieId);
+  }
+
 }

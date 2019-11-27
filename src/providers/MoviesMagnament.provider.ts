@@ -10,9 +10,6 @@ export class MoviesMagnamentProvider {
 
     makeRequest(query: string) {
         const url = `https://movieapp-microservices.appspot.com/movies/${query}`;
-        console.log(url);
-        // const url = `https://randomuser.me/api/?results=25`;
-        // const url = `https://movieapp-microservices.appspot.com/movies/search/?text=batman`;
         return this.http.get(url);
     }
 
