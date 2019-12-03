@@ -13,6 +13,9 @@ export class MoviesMagnamentProvider {
         return this.http.get(url);
     }
 
+    getMovieById(idMovie: string) {
+        return this.makeRequest(idMovie);
+    }
 
     trendingWeek() {
         return this.makeRequest('trending/week');
