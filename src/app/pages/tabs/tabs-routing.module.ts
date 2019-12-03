@@ -48,6 +48,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'movie/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../movie/movie.module').then(m => m.MoviePageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
@@ -56,7 +66,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/tab4',
     pathMatch: 'full'
   }
 ];

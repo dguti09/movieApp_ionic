@@ -16,9 +16,12 @@ export class Tab1Page {
     }
 
     searchMovie(keyword: string) {
-        if (keyword.length !== 0) {
+        console.log(keyword.length)
+        if (keyword.length > 4) {
             this.moviesProvider.searchMovie(keyword).subscribe(
                 (data) => {
+                    const page = data['page'];
+                    console.log('page ->' + page)
                     this.movies = data['movies'];
                 },
                 (e) => {
