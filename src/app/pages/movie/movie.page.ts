@@ -24,7 +24,8 @@ export class MoviePage implements OnInit {
 
     private  getMovie(idMovie: string) {
        this.moviesProvider.getMovieById(idMovie).subscribe( (data) => {
-        console.log('data -> ' + JSON.stringify(data));
+        // console.log('data -> ' + JSON.stringify(data));
+        const movieObj: MovieModel = new MovieModel();
         this.movie = data;
         console.log('movie -> ' + JSON.stringify(this.movie));
       });

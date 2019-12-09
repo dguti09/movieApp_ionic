@@ -40,7 +40,7 @@ export class Tab4Page implements OnInit {
         this.moviesProvider.trendingDay().subscribe(
             (data) => {
                 this.movies = data['movies'];
-                console.log(this.movies);
+                // console.log(this.movies);
             },
             (e) => {
                 console.log(e);

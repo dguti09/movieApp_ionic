@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "buildAndStart" : "ng build && ng serve -o"
+    "buildAndStart" : "ng build && ng serve -o",
+    "ionicStart":  "ionic serve"
   },
   "private": true,
   "dependencies": {
