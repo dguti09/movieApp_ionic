@@ -22,7 +22,7 @@ export class Tab1Page {
                 (data) => {
                     const page = data['page'];
                     console.log('page ->' + page)
-                    this.movies = data['movies'];
+                    this.movies = data['movies'].map(x => Object.assign(new MovieModel(), x) );
                 },
                 (e) => {
                     console.log(e);

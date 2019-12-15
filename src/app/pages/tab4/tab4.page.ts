@@ -27,8 +27,9 @@ export class Tab4Page implements OnInit {
     getWeek() {
         this.moviesProvider.trendingWeek().subscribe(
             (data) => {
-                this.movies = data['movies'];
-                console.log(this.movies);
+                this.movies = data['movies'].map(x =>
+                  Object.assign(new MovieModel(), x)
+                );
             },
             (e) => {
                 console.log(e);
@@ -39,8 +40,9 @@ export class Tab4Page implements OnInit {
     getDay() {
         this.moviesProvider.trendingDay().subscribe(
             (data) => {
-                this.movies = data['movies'];
+                // this.movies = data['movies'];
                 // console.log(this.movies);
+                this.movies = data['movies'].map(x => Object.assign(new MovieModel(), x) );
             },
             (e) => {
                 console.log(e);

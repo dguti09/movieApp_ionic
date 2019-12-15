@@ -1,12 +1,14 @@
 <ion-header>
     <ion-toolbar color="dark">
-        <ion-title>
-            Buscar
-        </ion-title>
+        <ion-searchbar #keyWord  (keyup)="searchMovie(keyWord.value)"  showCancelButton="never" color="dark" >
+        </ion-searchbar>
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-searchbar #keyWord  (keyup)="searchMovie(keyWord.value)"  showCancelButton="never"></ion-searchbar>
+<ion-content color="medium">
+
+
     <app-show-movie-component [items]="movies"></app-show-movie-component>
+
+
 </ion-content>
