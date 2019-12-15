@@ -5,7 +5,10 @@ export class MovieModel {
     date: Date;
     resume: string;
     posterImage: string;
+    backgroundImage: string;
     resumeMin: string;
+    webUrl: string;
+    genre: string;
 
     constructor() {
     }

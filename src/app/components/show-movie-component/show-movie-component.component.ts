@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./show-movie-component.component.scss'],
 })
 export class ShowMovieComponentComponent implements OnInit {
-  @Input() items: MovieModel[] = [];
+  @Input() movies: MovieModel[] = [];
   constructor(private router: Router) { }
 
   ngOnInit() {}

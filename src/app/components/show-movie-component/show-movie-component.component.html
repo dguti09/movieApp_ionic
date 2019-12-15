@@ -1,55 +1,26 @@
-<div (click)="goToMovie(item.id)" *ngFor="let item of items" class="ion-padding-horizontal">
-    <!--<div class="row">
-        <div class="col text-center">
-            <h2>{{item.title}}</h2>
-        </div>
-    </div>
-    <div class="row">
-        <img [src]="item.posterImage"
-             width="80px" height="125px"
-             style="float:left; margin-right: 10px;"/>
-        <p class="ion-text-sm-justify" style="text-align: left;">{{item.resume}}</p>
-    </div>
-    <div class="row">
-      <ion-label>
-            <ion-icon name="calendar"></ion-icon>
-            {{item.date}}
-            <ion-icon style="color: goldenrod; margin-left: 2%" name="star"></ion-icon>
-            {{item.score}}
-      </ion-label>
-    </div>
-    <ion-item-divider></ion-item-divider>-->
+<div (click)="goToMovie(movie.id)" *ngFor="let movie of movies" class="ion-padding-horizontal">
     <ion-card color="dark">
-        <ion-card-header>
             <ion-card-title>
-
-                <ion-row>
-                    <ion-col size="8">
-                        {{item.title}}
-                    </ion-col>
-                    <ion-col size="4">
+                <ion-item color="dark">
+                    <ion-text slot="start">{{movie.title}}</ion-text>
+                    <ion-text slot="end">
                         <ion-icon style="color: goldenrod; align-content: flex-end;" name="star"></ion-icon>
-                        {{item.score}}
-                    </ion-col>
-                </ion-row>
+                        {{movie.score}}
+                    </ion-text>
+                </ion-item>
             </ion-card-title>
-        </ion-card-header>
 
         <ion-card-content>
             <ion-row>
-                <ion-col size="4">
-                    <img [src]="item.posterImage"
-                         width="80px" height="125px"
-                         style="float:left; margin-right: 10px;"/>
+                <ion-col size="5">
+                    <img [src]="movie.posterImage"/>
+                    <ion-icon name="calendar" [size]="24" class="ion-align-items-center"></ion-icon>
+                    {{movie.date}}
                 </ion-col>
-                <ion-col size="8">
-                    {{item.generateResumeMin()}}
-                    {{item.resumeMin}}
+                <ion-col size="7">
+                    {{movie.generateResumeMin()}}
+                    {{movie.resumeMin}}
                 </ion-col>
-                    <ion-col size="12">
-                        <ion-icon name="calendar" [size]="24" class="ion-align-items-center"></ion-icon>
-                        {{item.date}}
-                    </ion-col>
             </ion-row>
         </ion-card-content>
     </ion-card>

@@ -11,7 +11,7 @@ import {MovieModel} from '../../models/Movie.model';
 })
 export class MoviePage implements OnInit {
 
-    movie: any = [];
+    movie: MovieModel;
 
     constructor(private router: ActivatedRoute, private moviesProvider: MoviesMagnamentProvider) {
 
@@ -22,11 +22,11 @@ export class MoviePage implements OnInit {
 
     }
 
-    private  getMovie(idMovie: string) {
+    private getMovie(idMovie: string) {
        this.moviesProvider.getMovieById(idMovie).subscribe( (data) => {
         // console.log('data -> ' + JSON.stringify(data));
         const movieObj: MovieModel = new MovieModel();
-        this.movie = data;
+        this.movie = Object.assign(new MovieModel(), data);
         console.log('movie -> ' + JSON.stringify(this.movie));
       });
     }

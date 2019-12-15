@@ -1,70 +1,41 @@
 <ion-header>
   <ion-toolbar color="dark" mode="ios">
-    <ion-title *ngIf="movie">{{movie['title']}}</ion-title>
+    <ion-title *ngIf="movie">
+      <ion-row>
+        <ion-col size="6" >
+          {{movie['title']}}
+        </ion-col>
+        <ion-col size="6">
+          <ion-icon style="color: goldenrod;" name="star"></ion-icon>
+          {{movie.score}}/10
+        </ion-col>
+      </ion-row>
+
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-grid *ngIf="movie"  class="container main-container animated fadeIn fast">
-    <ion-row>
-      <ion-col size="12">
-        <img [src]="movie['backgroundImage']">
-      </ion-col>
-      <ion-col>
-        <img [src]="movie['posterImage']">
-      </ion-col>
-      <ion-col>
-        ion-col
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content *ngIf="movie" color="medium">
+
+  <ion-card color="dark">
+    <img [src]="movie.backgroundImage">
+    <ion-item color="dark">
+
+      <div slot="start">
+        <ion-icon name="calendar" [size]="24" class="ion-align-items-center"></ion-icon>
+        {{movie.date}}
+      </div>
 
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      <ion-card-title>Card Title</ion-card-title>
-    </ion-card-header>
+      <ion-text slot="end">{{movie.genre}}</ion-text>
 
-    <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
 
     <ion-card-content>
-      This is content, without any paragraph or header tags,
-      within an ion-card-content element.
+      <img class="illustration" [src]="movie.posterImage" style="float: left; margin: 0 15px 0 0; max-width: 100px" />
+      <ion-text [color]> {{movie.resume}}</ion-text>
+      <ion-item color="dark"><a href="{{movie.webUrl}}">{{movie.webUrl}}</a></ion-item>
     </ion-card-content>
   </ion-card>
 
-
-  <ion-card>
-    <ion-item href="#" class="activated">
-      <ion-icon name="wifi" slot="start"></ion-icon>
-      <ion-label>Card Link Item 1 .activated</ion-label>
-    </ion-item>
-
-    <ion-item href="#">
-      <ion-icon name="wine" slot="start"></ion-icon>
-      <ion-label>Card Link Item 2</ion-label>
-    </ion-item>
-
-    <ion-item class="activated">
-      <ion-icon name="warning" slot="start"></ion-icon>
-      <ion-label>Card Button Item 1 .activated</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="walk" slot="start"></ion-icon>
-      <ion-label>Card Button Item 2</ion-label>
-    </ion-item>
-  </ion-card>
 </ion-content>
