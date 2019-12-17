@@ -1,4 +1,10 @@
-
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title *ngIf="movie" >
+      {{movie.title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content *ngIf="movie" color="medium" fullscreen>
 
   <ion-card color="dark">
@@ -34,7 +40,23 @@
       <img class="illustration" [src]="movie.posterImage" style="float: left; margin: 0 15px 0 0; max-width: 100px" />
       <ion-text [color]> {{movie.resume}}</ion-text>
       <ion-item color="dark"><a href="{{movie.webUrl}}">{{movie.webUrl}}</a></ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button expand="block" color="light">
+              <ion-icon name="eye"></ion-icon> Por Ver
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button expand="block" color="danger">
+              <ion-icon name="heart"></ion-icon> Favorita
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
     </ion-card-content>
+
   </ion-card>
 
 </ion-content>
