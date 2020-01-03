@@ -11,6 +11,7 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MoviesMagnamentProvider} from '../providers/MoviesMagnament.provider';
 import {IonicStorageModule} from '@ionic/storage';
+import {ShowMovieModuleModule} from './show-movie-module/show-movie-module.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -20,6 +21,7 @@ import {IonicStorageModule} from '@ionic/storage';
         HttpClientModule,
         IonicModule.forRoot(),
         AppRoutingModule,
+        ShowMovieModuleModule,
         IonicStorageModule.forRoot(),
     ],
     providers: [

@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { Tab4PageRoutingModule } from './trending-tab-routing.module';
 
 import { TrendingTabPage } from './trending-tab.page';
-import {Tab1PageModule} from '../search-tab/search-tab.module';
+import {ShowMovieModuleModule} from '../../show-movie-module/show-movie-module.module';
 
 @NgModule({
     imports: [
@@ -15,7 +15,7 @@ import {Tab1PageModule} from '../search-tab/search-tab.module';
         FormsModule,
         IonicModule,
         Tab4PageRoutingModule,
-        Tab1PageModule
+        ShowMovieModuleModule,
     ],
   declarations: [TrendingTabPage]
 })

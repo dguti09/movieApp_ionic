@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FavoriteTabPage } from './favorite-tab.page';
-import {Tab1PageModule} from '../search-tab/search-tab.module';
+import {ShowMovieModuleModule} from '../../show-movie-module/show-movie-module.module';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import {Tab1PageModule} from '../search-tab/search-tab.module';
     CommonModule,
     FormsModule,
     RouterModule.forChild([{path: '', component: FavoriteTabPage}]),
-    Tab1PageModule,
+    ShowMovieModuleModule,
   ],
   declarations: [FavoriteTabPage]
 })
