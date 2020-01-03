@@ -12,7 +12,7 @@ export class UsersManagementProvider {
     constructor(private http: HttpClient) {}
 
     getRequest(query: string) {
-        const url = `${this.urlBase} ${query}`;
+        const url = `${this.urlBase}${query}`;
         return this.http.get(url);
     }
 
@@ -35,6 +35,11 @@ export class UsersManagementProvider {
             return this.postRequest('movie/favorite', body);
         }
     }
+
+    getFavorites(idUser: string) {
+        return this.getRequest(`user/movies/favorite/${idUser}`);
+    }
+
 
 
 }
