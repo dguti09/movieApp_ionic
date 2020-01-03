@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { SearchTabPage } from './search-tab.page';
 import {ShowMovieComponentComponent} from '../../components/show-movie-component/show-movie-component.component';
 
 @NgModule({
@@ -11,11 +11,11 @@ import {ShowMovieComponentComponent} from '../../components/show-movie-component
         IonicModule,
         CommonModule,
         FormsModule,
-        RouterModule.forChild([{path: '', component: Tab1Page}])
+        RouterModule.forChild([{path: '', component: SearchTabPage}])
     ],
     exports: [
         ShowMovieComponentComponent
     ],
-    declarations: [Tab1Page, ShowMovieComponentComponent]
+    declarations: [SearchTabPage, ShowMovieComponentComponent]
 })
 export class Tab1PageModule {}

@@ -4,10 +4,10 @@ import {MovieModel} from '../../models/Movie.model';
 
 @Component({
     selector: 'app-tab1',
-    templateUrl: 'tab1.page.html',
-    styleUrls: ['tab1.page.scss']
+    templateUrl: 'search-tab.page.html',
+    styleUrls: ['search-tab.page.scss']
 })
-export class Tab1Page {
+export class SearchTabPage {
 
     movies: MovieModel[];
 

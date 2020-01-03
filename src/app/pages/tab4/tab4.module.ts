@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { Tab4PageRoutingModule } from './tab4-routing.module';
 
 import { Tab4Page } from './tab4.page';
-import {Tab1PageModule} from "../tab1/tab1.module";
+import {Tab1PageModule} from "../search-tab/search-tab.module";
 
 @NgModule({
     imports: [
