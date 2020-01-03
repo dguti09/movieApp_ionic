@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
     providedIn: 'root'
 })
 
-export class UsersMagnamentProvider {
+export class UsersManagementProvider {
 
     urlBase = 'https://api-gateway-dot-movieapp-microservices.appspot.com/';
 

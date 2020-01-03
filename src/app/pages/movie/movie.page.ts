@@ -3,7 +3,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {MoviesMagnamentProvider} from '../../../providers/MoviesMagnament.provider';
 import {MovieModel} from '../../models/Movie.model';
 import { Storage } from '@ionic/storage';
-import {UsersMagnamentProvider} from '../../../providers/UsersMagnament.provider';
+import {UsersManagementProvider} from '../../../providers/users-managament-provider.service';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class MoviePage implements OnInit {
     constructor(
         private router: ActivatedRoute,
         private moviesProvider: MoviesMagnamentProvider,
-        private usersProvider: UsersMagnamentProvider,
+        private usersProvider: UsersManagementProvider,
         private storage: Storage
     ) {
 

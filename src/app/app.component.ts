@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import {UsersMagnamentProvider} from '../providers/UsersMagnament.provider';
+import {UsersManagementProvider} from '../providers/users-managament-provider.service';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private usersProvider: UsersMagnamentProvider,
+    private usersProvider: UsersManagementProvider,
     private storage: Storage
   ) {
     this.initializeApp();
