@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { Tab4PageRoutingModule } from './trending-tab-routing.module';
 
 import { TrendingTabPage } from './trending-tab.page';
-import {Tab1PageModule} from "../search-tab/search-tab.module";
+import {Tab1PageModule} from '../search-tab/search-tab.module';
 
 @NgModule({
     imports: [
