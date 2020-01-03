@@ -18,32 +18,32 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'tosee-tab',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../tosee-tab/tosee-tab.module').then(m => m.Tab2PageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'favorite-tab',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../favorite-tab/favorite-tab.module').then(m => m.Tab3PageModule)
           }
         ]
       },
       {
-        path: 'tab4',
+        path: 'trending-tab',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab4/tab4.module').then(m => m.Tab4PageModule)
+              import('../trending-tab/trending-tab.module').then(m => m.Tab4PageModule)
           }
         ]
       },
@@ -66,7 +66,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tab4',
+    redirectTo: '/tabs/trending-tab',
     pathMatch: 'full'
   }
 ];

@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { Tab4PageRoutingModule } from './tab4-routing.module';
+import { Tab4PageRoutingModule } from './trending-tab-routing.module';
 
-import { Tab4Page } from './tab4.page';
+import { TrendingTabPage } from './trending-tab.page';
 import {Tab1PageModule} from "../search-tab/search-tab.module";
 
 @NgModule({
@@ -17,6 +17,6 @@ import {Tab1PageModule} from "../search-tab/search-tab.module";
         Tab4PageRoutingModule,
         Tab1PageModule
     ],
-  declarations: [Tab4Page]
+  declarations: [TrendingTabPage]
 })
 export class Tab4PageModule {}

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { Tab4Page } from './tab4.page';
+import { TrendingTabPage } from './trending-tab.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: Tab4Page
+    component: TrendingTabPage
   }
 ];
 

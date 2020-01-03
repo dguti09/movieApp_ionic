@@ -4,10 +4,10 @@ import {MoviesMagnamentProvider} from '../../../providers/MoviesMagnament.provid
 
 @Component({
     selector: 'app-tab4',
-    templateUrl: './tab4.page.html',
-    styleUrls: ['./tab4.page.scss'],
+    templateUrl: './trending-tab.page.html',
+    styleUrls: ['./trending-tab.page.scss'],
 })
-export class Tab4Page implements OnInit {
+export class TrendingTabPage implements OnInit {
 
     movies: MovieModel[];
 
