@@ -14,7 +14,7 @@ export class ShowMovieComponentComponent implements OnInit {
   ngOnInit() {}
 
   goToMovie(movieId: number) {
-    this.router.navigate(['/tabs/movie', movieId])
+    this.router.navigate(['/tabs/movie', movieId]);
     console.log(movieId);
   }
 

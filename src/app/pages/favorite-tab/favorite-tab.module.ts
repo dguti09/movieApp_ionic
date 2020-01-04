@@ -16,4 +16,17 @@ import {ShowMovieModuleModule} from '../../show-movie-module/show-movie-module.m
   ],
   declarations: [FavoriteTabPage]
 })
-export class Tab3PageModule {}
+
+
+export class Tab3PageModule {
+
+
+  constructor() {
+    console.log('test funcion1');
+  }
+
+  testFunction() {
+    console.log('test funcion');
+  }
+
+}
