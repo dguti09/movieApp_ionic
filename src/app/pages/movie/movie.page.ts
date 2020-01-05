@@ -45,6 +45,18 @@ export class MoviePage implements OnInit {
     ngOnInit() {
     }
 
+    private async addToSee() {
+        const userId = await this.storage.get('userId');
+        this.router.params.subscribe(idMovie => {
+            console.log(`add to See: ${JSON.stringify(idMovie)}`);
+
+            const auxMovieId: number = idMovie.id;
+            this.usersProvider.addMovieToSee(userId, auxMovieId).subscribe( response => {
+                console.log(`response add to See -> ${JSON.stringify(response)}`);
+            });
+        });
+    }
+
     private async addToFavorite() {
 
         const userId = await this.storage.get('userId');

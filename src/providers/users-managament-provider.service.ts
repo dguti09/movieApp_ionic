@@ -36,6 +36,18 @@ export class UsersManagementProvider {
         }
     }
 
+    addMovieToSee(idUser: string, idMovie: number) {
+        if (idUser && idMovie) {
+            const body = { idUser, idMovie };
+            console.log(`requesty body -> ${JSON.stringify(body)}`);
+            return this.postRequest('movie/toSee', body);
+        }
+    }
+
+    getToSee(idUser: string) {
+        return this.getRequest(`user/movies/toSee/${idUser}`);
+    }
+
     getFavorites(idUser: string) {
         return this.getRequest(`user/movies/favorite/${idUser}`);
     }

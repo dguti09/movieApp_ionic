@@ -6,4 +6,6 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content *ngIf="movies" color="medium">
+  <app-show-movie-component [movies]="movies"></app-show-movie-component>
+</ion-content>

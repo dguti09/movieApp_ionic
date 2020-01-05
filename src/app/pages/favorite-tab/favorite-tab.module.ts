@@ -18,15 +18,4 @@ import {ShowMovieModuleModule} from '../../show-movie-module/show-movie-module.m
 })
 
 
-export class Tab3PageModule {
-
-
-  constructor() {
-    console.log('test funcion1');
-  }
-
-  testFunction() {
-    console.log('test funcion');
-  }
-
-}
+export class Tab3PageModule {}

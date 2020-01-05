@@ -5,31 +5,31 @@ import {Storage} from '@ionic/storage';
 import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'favorite-tab.page.html',
-  styleUrls: ['favorite-tab.page.scss']
+  selector: 'app-tab2',
+  templateUrl: 'to-see-tab-page.component.html',
+  styleUrls: ['to-see-tab-page.component.scss']
 })
-export class FavoriteTabPage implements OnInit {
+export class ToSeeTabPage implements OnInit {
+
   movies: MovieModel[];
   constructor(private userProvider: UsersManagementProvider, private storage: Storage, private router: Router) {
   }
 
   ngOnInit(): void {
-
-      // subscribe events router
-      this.router.events.subscribe(events => {
-          // Several routing events, take only the last one
-          if (events instanceof NavigationEnd || events.constructor.name === NavigationEnd.name) {
-              console.log('navigation end');
-              this.doOnInit();
-          }
-      });
+    // subscribe events router
+    this.router.events.subscribe(events => {
+      // Several routing events, take only the last one
+      if (events instanceof NavigationEnd || events.constructor.name === NavigationEnd.name) {
+        console.log('navigation end');
+        this.doOnInit();
+      }
+    });
   }
 
-  private async getFavorites() {
+  private async getToSee() {
 
     const userId = await this.storage.get('userId');
-    this.userProvider.getFavorites(userId).subscribe(
+    this.userProvider.getToSee(userId).subscribe(
         (data) => {
           this.movies = data['movies'].map(x =>
               Object.assign(new MovieModel(), x)
@@ -42,11 +42,9 @@ export class FavoriteTabPage implements OnInit {
     );
   }
 
-    private doOnInit() {
-        this.getFavorites()
-            .then(r => console.log('favoritas cargadas'))
-            .catch(reason => console.log(reason));
-    }
+  private doOnInit() {
+    this.getToSee()
+        .then(r => console.log('to see cargadas'))
+        .catch(reason => console.log(reason));
+  }
 }
-
-
