@@ -12,6 +12,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {MoviesMagnamentProvider} from '../providers/MoviesMagnament.provider';
 import {IonicStorageModule} from '@ionic/storage';
 import {ShowMovieModuleModule} from './show-movie-module/show-movie-module.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
     declarations: [AppComponent],
@@ -23,6 +25,7 @@ import {ShowMovieModuleModule} from './show-movie-module/show-movie-module.modul
         AppRoutingModule,
         ShowMovieModuleModule,
         IonicStorageModule.forRoot(),
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ],
     providers: [
         StatusBar,
