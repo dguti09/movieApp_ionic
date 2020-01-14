@@ -45,11 +45,15 @@
           <ion-col size="6">
             <ion-button (click)="addToSee()" expand="block" color="light">
               <ion-icon name="eye"></ion-icon> Por Ver
+              <ion-spinner *ngIf="addToSeeSuccess == false" color="dark"  ></ion-spinner>
+              <ion-icon *ngIf="addToSeeSuccess" name="checkmark"></ion-icon>
             </ion-button>
           </ion-col>
           <ion-col size="6">
             <ion-button (click)="addToFavorite()"  expand="block" color="danger">
               <ion-icon name="heart"></ion-icon> Favorita
+              <ion-spinner *ngIf="addToFavoriteSuccess == false" ></ion-spinner>
+              <ion-icon *ngIf="addToFavoriteSuccess" name="checkmark"></ion-icon>
             </ion-button>
           </ion-col>
         </ion-row>

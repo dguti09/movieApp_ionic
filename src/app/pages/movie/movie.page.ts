@@ -14,6 +14,8 @@ import {UsersManagementProvider} from '../../../providers/users-managament-provi
 export class MoviePage implements OnInit {
 
     movie: MovieModel;
+    addToFavoriteSuccess: boolean ;
+    addToSeeSuccess: boolean;
 
     constructor(
         private router: ActivatedRoute,
@@ -21,7 +23,6 @@ export class MoviePage implements OnInit {
         private usersProvider: UsersManagementProvider,
         private storage: Storage
     ) {
-
         this.router.params.subscribe( idMovie => {
             // console.log(idMovie);
              this.getMovie(idMovie.id);
@@ -46,6 +47,7 @@ export class MoviePage implements OnInit {
     }
 
     async addToSee() {
+        this.addToSeeSuccess = false;
         const userId = await this.storage.get('userId');
         this.router.params.subscribe(idMovie => {
             console.log(`add to See: ${JSON.stringify(idMovie)}`);
@@ -53,20 +55,26 @@ export class MoviePage implements OnInit {
             const auxMovieId: number = idMovie.id;
             this.usersProvider.addMovieToSee(userId, auxMovieId).subscribe( response => {
                 console.log(`response add to See -> ${JSON.stringify(response)}`);
+                this.addToSeeSuccess = true;
             });
         });
+        this.addToSeeSuccess = false;
     }
 
     async addToFavorite() {
 
+        this.addToFavoriteSuccess = false;
         const userId = await this.storage.get('userId');
         this.router.params.subscribe(idMovie => {
             console.log(`add to favorite: ${JSON.stringify(idMovie)}`);
-
             const auxMovieId: number = idMovie.id;
             this.usersProvider.addMovieToFavorite(userId, auxMovieId).subscribe( response => {
                console.log(`response add to favorite -> ${JSON.stringify(response)}`);
+               this.addToFavoriteSuccess = true;
             });
         });
+
+        this.addToFavoriteSuccess = false;
+
     }
 }
