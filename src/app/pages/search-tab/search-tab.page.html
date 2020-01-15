@@ -3,6 +3,7 @@
         <ion-searchbar #keyWord  (keyup)="searchMovie(keyWord.value)"  showCancelButton="never" color="dark" >
         </ion-searchbar>
     </ion-toolbar>
+    <ion-progress-bar *ngIf="movies.length <= 0" type="indeterminate" color="dark"></ion-progress-bar>
 </ion-header>
 
 <ion-content color="medium">

@@ -9,27 +9,32 @@ import {MovieModel} from '../../models/Movie.model';
 })
 export class SearchTabPage {
 
-    movies: MovieModel[];
+    movies: MovieModel[] = [];
+    showProgress: boolean;
 
     constructor(private moviesProvider: MoviesMagnamentProvider) {
         // this.loadPage();
+        this.showProgress = false;
     }
 
     searchMovie(keyword: string) {
         console.log(keyword.length)
+        this.showProgress = true;
         if (keyword.length > 4) {
             this.moviesProvider.searchMovie(keyword).subscribe(
                 (data) => {
                     const page = data['page'];
                     console.log('page ->' + page)
                     this.movies = data['movies'].map(x => Object.assign(new MovieModel(), x) );
+                    this.showProgress = false;
                 },
                 (e) => {
                     console.log(e);
                 }
             );
         } else {
-          this.movies = null;
+          this.movies = [];
+          this.showProgress = false;
         }
     }
 }

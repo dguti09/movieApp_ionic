@@ -10,10 +10,10 @@
       </ion-item>
     </ion-card-title>
 
-    <ion-card-content>
+    <ion-card-content *ngIf="movie">
       <ion-row>
         <ion-col size="5">
-          <img [src]="movie.posterImage"/>
+          <img *ngIf="movie.posterImage" [src]="movie.posterImage"/>
           <ion-icon name="calendar" [size]="24" class="ion-align-items-center"></ion-icon>
           {{movie.date}}
         </ion-col>

@@ -9,7 +9,7 @@ import {MoviesMagnamentProvider} from '../../../providers/MoviesMagnament.provid
 })
 export class TrendingTabPage implements OnInit {
 
-    movies: MovieModel[];
+    movies: MovieModel[] = [];
 
     constructor(private moviesProvider: MoviesMagnamentProvider) {
         this.getDay();
@@ -17,9 +17,10 @@ export class TrendingTabPage implements OnInit {
 
     changeButton(item) {
         console.log('cambia', item.detail.value);
+        this.movies = [];
         if (item.detail.value === '1') {
           this.getDay();
-        } else {
+        } else if (item.detail.value === '2') {
           this.getWeek();
         }
     }
@@ -40,9 +41,9 @@ export class TrendingTabPage implements OnInit {
     getDay() {
         this.moviesProvider.trendingDay().subscribe(
             (data) => {
-                // this.movies = data['movies'];
-                // console.log(this.movies);
-                this.movies = data['movies'].map(x => Object.assign(new MovieModel(), x) );
+                this.movies = data['movies'].map(x =>
+                    Object.assign(new MovieModel(), x)
+                );
             },
             (e) => {
                 console.log(e);

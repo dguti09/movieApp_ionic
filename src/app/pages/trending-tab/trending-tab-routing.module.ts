@@ -6,7 +6,7 @@ import { TrendingTabPage } from './trending-tab.page';
 const routes: Routes = [
   {
     path: '',
-    component: TrendingTabPage
+    component: TrendingTabPage,
   }
 ];
 
