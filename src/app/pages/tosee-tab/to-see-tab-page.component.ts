@@ -11,7 +11,7 @@ import {NavigationEnd, Router} from '@angular/router';
 })
 export class ToSeeTabPage implements OnInit {
 
-  movies: MovieModel[];
+  movies: MovieModel[] = [];
   constructor(private userProvider: UsersManagementProvider, private storage: Storage, private router: Router) {
   }
 
