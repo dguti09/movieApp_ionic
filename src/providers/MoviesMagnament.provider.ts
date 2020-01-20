@@ -9,7 +9,7 @@ export class MoviesMagnamentProvider {
     }
 
     makeRequest(query: string) {
-        const url = `https://api-gateway-dot-movieapp-microservices.appspot.com/movies/${query}`;
+        const url = `https://api-gateway-dot-movieapp-microservices.appspot.com/movie/${query}`;
         return this.http.get(url);
     }
 

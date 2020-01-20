@@ -20,7 +20,10 @@ export class SearchTabPage {
     searchMovie(keyword: string) {
         console.log(keyword.length)
         this.showProgress = true;
-        if (keyword.length > 4) {
+        if (keyword.length === 0) {
+            return;
+        }
+        if (keyword.length > 0) {
             this.moviesProvider.searchMovie(keyword).subscribe(
                 (data) => {
                     const page = data['page'];
