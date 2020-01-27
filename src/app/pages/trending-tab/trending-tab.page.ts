@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieModel} from '../../models/Movie.model';
 import {MoviesMagnamentProvider} from '../../../providers/MoviesMagnament.provider';
+import {SeriesService} from '../../services/series.service';
 
 @Component({
     selector: 'app-tab4',
@@ -16,7 +17,7 @@ export class TrendingTabPage implements OnInit {
     }
 
     changeButton(item) {
-        console.log('cambia', item.detail.value);
+        console.log('Select -> ', item.detail.value);
         this.movies = [];
         if (item.detail.value === '1') {
           this.getDay();

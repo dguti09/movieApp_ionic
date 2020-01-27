@@ -1,16 +1,25 @@
 <ion-header>
     <ion-toolbar color="dark">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="7">
+                    <ion-segment (ionChange)="changeButton($event)" color="medium">
+                        <ion-segment-button checked value="1">
+                            <ion-label color="medium">Diario</ion-label>
+                            <ion-icon name="md-clock"></ion-icon>
+                        </ion-segment-button>
+                        <ion-segment-button value="2">
+                            <ion-label color="medium">Semanal</ion-label>
+                            <ion-icon name="md-calendar"></ion-icon>
+                        </ion-segment-button>
+                    </ion-segment>
+                </ion-col>
+                <ion-col size="5">
+                    <app-series-switch></app-series-switch>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
 
-        <ion-segment (ionChange)="changeButton($event)" color="medium">
-            <ion-segment-button checked value="1">
-                <ion-label color="medium">Diario</ion-label>
-                <ion-icon name="md-clock"></ion-icon>
-            </ion-segment-button>
-            <ion-segment-button value="2">
-                <ion-label color="medium">Semanal</ion-label>
-                <ion-icon name="md-calendar"></ion-icon>
-            </ion-segment-button>
-        </ion-segment>
 
     </ion-toolbar>
     <ion-progress-bar *ngIf="movies.length <= 0" type="indeterminate" color="dark"></ion-progress-bar>

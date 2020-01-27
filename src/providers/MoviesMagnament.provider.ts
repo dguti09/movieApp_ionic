@@ -1,31 +1,51 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {SeriesService} from '../app/services/series.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class MoviesMagnamentProvider {
-    constructor(private http: HttpClient) {
+    getTvs: boolean
+    constructor(private http: HttpClient, private serviceSeries: SeriesService) {
+        this.getTvs = false;
     }
 
-    makeRequest(query: string) {
-        const url = `https://api-gateway-dot-movieapp-microservices.appspot.com/movie/${query}`;
+    makeRequest(query: string, type: string) {
+        const url = `https://api-gateway-dot-movieapp-microservices.appspot.com/${type}/${query}`;
         return this.http.get(url);
     }
 
     getMovieById(idMovie: string) {
-        return this.makeRequest(idMovie);
+        this.getTvs = this.serviceSeries.tvIsEnableService
+        if (this.getTvs) {
+            return this.makeRequest(idMovie, 'tv');
+        }
+        return this.makeRequest(idMovie, 'movie');
     }
 
     trendingWeek() {
-        return this.makeRequest('trending/week');
+        this.getTvs = this.serviceSeries.tvIsEnableService
+        console.log(' get tvs? -> ' + this.getTvs )
+        if (this.getTvs) {
+            return this.makeRequest('trending/week', 'tv');
+        }
+        return this.makeRequest('trending/week', 'movie');
     }
 
     trendingDay() {
-        return this.makeRequest('trending/day');
+        this.getTvs = this.serviceSeries.tvIsEnableService
+        if (this.getTvs) {
+            return this.makeRequest('trending/day', 'tv');
+        }
+        return this.makeRequest('trending/day', 'movie');
     }
 
     searchMovie(text: string) {
-        return this.makeRequest(`search/?text=${text}`);
+        this.getTvs = this.serviceSeries.tvIsEnableService
+        if (this.getTvs) {
+            return this.makeRequest(`search/?text=${text}`, 'tv');
+        }
+        return this.makeRequest(`search/?text=${text}`, 'movie');
     }
 }

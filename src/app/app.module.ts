@@ -14,6 +14,10 @@ import {IonicStorageModule} from '@ionic/storage';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+// services
+
+import { SeriesService } from './services/series.service';
+
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
@@ -29,6 +33,7 @@ import { environment } from '../environments/environment';
         StatusBar,
         SplashScreen,
         MoviesMagnamentProvider,
+        SeriesService,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent]
