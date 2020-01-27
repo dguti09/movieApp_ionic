@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SearchTabPage } from './search-tab.page';
-import {ShowMovieModuleModule} from '../../show-movie-module/show-movie-module.module';
+import {MovieCardModule} from '../../modules/movie-card/movie-card.module';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import {ShowMovieModuleModule} from '../../show-movie-module/show-movie-module.m
         CommonModule,
         FormsModule,
         RouterModule.forChild([{path: '', component: SearchTabPage}]),
-        ShowMovieModuleModule
+        MovieCardModule
     ],
     declarations: [SearchTabPage]
 })

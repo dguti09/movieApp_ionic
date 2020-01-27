@@ -7,5 +7,6 @@
   <ion-progress-bar *ngIf="movies.length <= 0" type="indeterminate" color="dark"></ion-progress-bar>
 </ion-header>
 <ion-content *ngIf="movies" color="medium">
-  <app-show-movie-component [movies]="movies"></app-show-movie-component>
+<!--  <app-show-movie-component [movies]="movies"></app-show-movie-component>-->
+  <app-movie-card [movies]="movies"></app-movie-card>
 </ion-content>

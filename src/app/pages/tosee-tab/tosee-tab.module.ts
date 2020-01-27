@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToSeeTabPage } from './to-see-tab-page.component';
-import {ShowMovieModuleModule} from '../../show-movie-module/show-movie-module.module';
+import {MovieCardModule} from '../../modules/movie-card/movie-card.module';
+
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import {ShowMovieModuleModule} from '../../show-movie-module/show-movie-module.m
     CommonModule,
     FormsModule,
     RouterModule.forChild([{path: '', component: ToSeeTabPage}]),
-    ShowMovieModuleModule
+    MovieCardModule,
   ],
   declarations: [ToSeeTabPage]
 })
