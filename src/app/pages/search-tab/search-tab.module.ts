@@ -17,4 +17,5 @@ import {MovieCardModule} from '../../modules/movie-card/movie-card.module';
     ],
     declarations: [SearchTabPage]
 })
-export class Tab1PageModule {}
+export class SearchTabModule {
+}

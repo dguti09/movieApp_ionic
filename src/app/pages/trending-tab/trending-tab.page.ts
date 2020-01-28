@@ -11,17 +11,19 @@ import {SeriesService} from '../../services/series.service';
 export class TrendingTabPage implements OnInit {
 
     movies: MovieModel[] = [];
+    tvIsEnable: boolean;
 
-    constructor(private moviesProvider: MoviesMagnamentProvider) {
+    constructor(private moviesProvider: MoviesMagnamentProvider, private seriesService: SeriesService) {
+        this.tvIsEnable = seriesService.tvIsEnableService;
         this.getDay();
     }
 
-    changeButton(item) {
-        console.log('Select -> ', item.detail.value);
+    changeButton(event) {
+        console.log('Select -> ', event.detail.value);
         this.movies = [];
-        if (item.detail.value === '1') {
+        if (event.detail.value === '1') {
           this.getDay();
-        } else if (item.detail.value === '2') {
+        } else if (event.detail.value === '2') {
           this.getWeek();
         }
     }

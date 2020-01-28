@@ -1,6 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MoviesMagnamentProvider} from '../../../providers/MoviesMagnament.provider';
 import {MovieModel} from '../../models/Movie.model';
+import {NavigationEnd, Router} from '@angular/router';
+import {filter} from 'rxjs/operators';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
     selector: 'app-tab1',
@@ -11,19 +14,22 @@ export class SearchTabPage {
 
     movies: MovieModel[] = [];
     showProgress: boolean;
+    textSearch: string;
 
-    constructor(private moviesProvider: MoviesMagnamentProvider) {
+    constructor(private moviesProvider: MoviesMagnamentProvider, private router: Router, @Inject(DOCUMENT) document) {
         // this.loadPage();
         this.showProgress = false;
     }
 
     searchMovie(keyword: string) {
+        // validate switch
         console.log(keyword.length)
         this.showProgress = true;
         if (keyword.length === 0) {
             return;
         }
         if (keyword.length > 0) {
+            this.textSearch = keyword;
             this.moviesProvider.searchMovie(keyword).subscribe(
                 (data) => {
                     const page = data['page'];
@@ -39,5 +45,10 @@ export class SearchTabPage {
           this.movies = [];
           this.showProgress = false;
         }
+    }
+
+    getData() {
+        console.log('texto! -> ' + this.textSearch);
+        return this.textSearch;
     }
 }

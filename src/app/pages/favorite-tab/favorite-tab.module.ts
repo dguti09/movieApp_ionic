@@ -19,4 +19,4 @@ import {MovieCardModule} from '../../modules/movie-card/movie-card.module';
 })
 
 
-export class Tab3PageModule {}
+export class FavoriteTabModule {}

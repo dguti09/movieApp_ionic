@@ -13,7 +13,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../search-tab/search-tab.module').then(m => m.Tab1PageModule)
+              import('../search-tab/search-tab.module').then(m => m.SearchTabModule)
           }
         ]
       },
@@ -23,7 +23,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tosee-tab/tosee-tab.module').then(m => m.Tab2PageModule)
+              import('../tosee-tab/tosee-tab.module').then(m => m.ToSeeModule)
           }
         ]
       },
@@ -33,7 +33,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../favorite-tab/favorite-tab.module').then(m => m.Tab3PageModule)
+              import('../favorite-tab/favorite-tab.module').then(m => m.FavoriteTabModule)
           }
         ]
       },
@@ -43,7 +43,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../trending-tab/trending-tab.module').then(m => m.Tab4PageModule)
+              import('../trending-tab/trending-tab.module').then(m => m.TrendingTabModule)
           }
         ]
       },
@@ -75,4 +75,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+
+export class TabsPageRoutingModule {
+}

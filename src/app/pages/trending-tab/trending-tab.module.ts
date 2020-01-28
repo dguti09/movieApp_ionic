@@ -20,4 +20,4 @@ import {MovieCardModule} from '../../modules/movie-card/movie-card.module';
     ],
   declarations: [TrendingTabPage]
 })
-export class Tab4PageModule {}
+export class TrendingTabModule {}

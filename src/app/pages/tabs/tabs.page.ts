@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SeriesService} from '../../services/series.service';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  tvIsEnable: boolean;
+  constructor(private seriesService: SeriesService) {}
 
-  constructor() {}
-
+  changeTab() {
+    this.tvIsEnable = this.seriesService.tvIsEnableService;
+    console.log('prueba tab 1 , service tv enable?  -> ' + this.tvIsEnable);
+  }
 }

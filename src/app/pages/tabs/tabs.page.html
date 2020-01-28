@@ -1,13 +1,13 @@
 <ion-tabs>
 
   <ion-tab-bar color="dark" slot="bottom">
-    <ion-tab-button tab="search-tab">
+    <ion-tab-button (click)="changeTab()" tab="search-tab">
       <ion-icon name="search"></ion-icon>
       <ion-label>Buscar</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="trending-tab">
-      <ion-icon name="trending-up"></ion-icon>
+      <ion-icon (click)="changeTab() " name="trending-up"></ion-icon>
       <ion-label>Top</ion-label>
     </ion-tab-button>
 

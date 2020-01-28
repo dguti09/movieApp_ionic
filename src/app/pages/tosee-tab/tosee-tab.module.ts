@@ -17,4 +17,4 @@ import {MovieCardModule} from '../../modules/movie-card/movie-card.module';
   ],
   declarations: [ToSeeTabPage]
 })
-export class Tab2PageModule {}
+export class ToSeeModule {}

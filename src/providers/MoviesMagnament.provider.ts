@@ -43,6 +43,7 @@ export class MoviesMagnamentProvider {
 
     searchMovie(text: string) {
         this.getTvs = this.serviceSeries.tvIsEnableService
+        console.log('this.getTvs fro  search -> ? ' + this.getTvs)
         if (this.getTvs) {
             return this.makeRequest(`search/?text=${text}`, 'tv');
         }
