@@ -16,10 +16,14 @@ export class TrendingTabPage implements OnInit {
     constructor(private moviesProvider: MoviesMagnamentProvider, private seriesService: SeriesService) {
         this.tvIsEnable = seriesService.tvIsEnableService;
         this.getDay();
+        this.seriesService.componentMethodCalled$.subscribe( () => {
+                console.log('llamado desde el switch')
+                this.getDay();
+            }
+        );
     }
 
     changeButton(event) {
-        console.log('Select -> ', event.detail.value);
         this.movies = [];
         if (event.detail.value === '1') {
           this.getDay();

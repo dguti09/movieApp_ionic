@@ -23,12 +23,8 @@ export class SeriesSwitchComponent implements OnInit {
     }
     console.log('click swicth -> ' + this.tvIsEnabled)
     this.serviceSeries.getTvIsEnableService(this.tvIsEnabled);
-    console.log('hola')
-    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/tabs/search-tab']);
-      this.router.navigate(['/tabs/trending-tab']);
-    });
-      /*{
+    this.serviceSeries.callComponentMethod();
+/*      {
         router.events.pipe(
             filter(event => event instanceof NavigationEnd)
         ).subscribe((event: NavigationEnd) => {

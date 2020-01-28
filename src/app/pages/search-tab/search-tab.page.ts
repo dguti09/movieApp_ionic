@@ -1,9 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MoviesMagnamentProvider} from '../../../providers/MoviesMagnament.provider';
 import {MovieModel} from '../../models/Movie.model';
-import {NavigationEnd, Router} from '@angular/router';
-import {filter} from 'rxjs/operators';
-import { DOCUMENT } from '@angular/common';
+import {SeriesService} from '../../services/series.service';
 
 @Component({
     selector: 'app-tab1',
@@ -16,35 +14,42 @@ export class SearchTabPage {
     showProgress: boolean;
     textSearch: string;
 
-    constructor(private moviesProvider: MoviesMagnamentProvider, private router: Router, @Inject(DOCUMENT) document) {
+    constructor(private moviesProvider: MoviesMagnamentProvider, private seriesService: SeriesService) {
         // this.loadPage();
         this.showProgress = false;
+        this.seriesService.componentMethodCalled$.subscribe( () => {
+                console.log('llamado desde el switch 2 ');
+                this.searchMovie(this.textSearch);
+            }
+        );
     }
 
     searchMovie(keyword: string) {
         // validate switch
-        console.log(keyword.length)
-        this.showProgress = true;
-        if (keyword.length === 0) {
-            return;
+        if (keyword) {
+            this.showProgress = true;
+            if (keyword.length === 0) {
+                return;
+            }
+            if (keyword.length > 0) {
+                this.textSearch = keyword;
+                this.moviesProvider.searchMovie(keyword).subscribe(
+                    (data) => {
+                        const page = data['page'];
+                        console.log('page ->' + page)
+                        this.movies = data['movies'].map(x => Object.assign(new MovieModel(), x) );
+                        this.showProgress = false;
+                    },
+                    (e) => {
+                        console.log(e);
+                    }
+                );
+            } else {
+                this.movies = [];
+                this.showProgress = false;
+            }
         }
-        if (keyword.length > 0) {
-            this.textSearch = keyword;
-            this.moviesProvider.searchMovie(keyword).subscribe(
-                (data) => {
-                    const page = data['page'];
-                    console.log('page ->' + page)
-                    this.movies = data['movies'].map(x => Object.assign(new MovieModel(), x) );
-                    this.showProgress = false;
-                },
-                (e) => {
-                    console.log(e);
-                }
-            );
-        } else {
-          this.movies = [];
-          this.showProgress = false;
-        }
+
     }
 
     getData() {
