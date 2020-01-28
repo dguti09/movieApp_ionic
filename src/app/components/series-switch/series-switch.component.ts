@@ -17,10 +17,14 @@ export class SeriesSwitchComponent implements OnInit {
 
   ngOnInit() {}
 
+  isEnableTv() {
+    return this.serviceSeries.tvIsEnableService;
+  }
   enableTvSeries() {
     if (this.tvIsEnabled === undefined) {
       this.tvIsEnabled = false;
     }
+
     console.log('click swicth -> ' + this.tvIsEnabled)
     this.serviceSeries.getTvIsEnableService(this.tvIsEnabled);
     this.serviceSeries.callComponentMethod();

@@ -3,7 +3,7 @@
   <ion-label>Tv</ion-label>
 <!--  <ion-toggle (click)="enableTvSeries()" ngModel="checked" color="success" slot="start" name="series" [checked]="tvIsEnabled"></ion-toggle>-->
 
-  <ion-toggle [(ngModel)]="tvIsEnabled" (ionChange)="enableTvSeries()" [checked]="this.serviceSeries.tvIsEnableService"></ion-toggle>
+  <ion-toggle [(ngModel)]="tvIsEnabled" (ionChange)="enableTvSeries()" [checked]="isEnableTv()"></ion-toggle>
 
 </ion-item>
 
