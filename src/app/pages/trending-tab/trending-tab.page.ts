@@ -12,23 +12,29 @@ export class TrendingTabPage implements OnInit {
 
     movies: MovieModel[] = [];
     tvIsEnable: boolean;
+    eventWeekOrDay = '1';
+    showProgress: boolean;
 
     constructor(private moviesProvider: MoviesMagnamentProvider, private seriesService: SeriesService) {
         this.tvIsEnable = seriesService.tvIsEnableService;
         this.getDay();
         this.seriesService.componentMethodCalled$.subscribe( () => {
-                console.log('llamado desde el switch')
-                this.getDay();
+                console.log('llamado desde el switch');
+                this.showProgress = true;
+                this.eventWeekOrDay === '1' ? this.getDay() : this.getWeek();
             }
         );
     }
 
     changeButton(event) {
         this.movies = [];
+        this.showProgress = true;
         if (event.detail.value === '1') {
-          this.getDay();
+            this.eventWeekOrDay = '1';
+            this.getDay();
         } else if (event.detail.value === '2') {
-          this.getWeek();
+            this.eventWeekOrDay = '2';
+            this.getWeek();
         }
     }
 
@@ -38,6 +44,7 @@ export class TrendingTabPage implements OnInit {
                 this.movies = data['movies'].map(x =>
                   Object.assign(new MovieModel(), x)
                 );
+                this.showProgress = false;
             },
             (e) => {
                 console.log(e);
@@ -51,6 +58,7 @@ export class TrendingTabPage implements OnInit {
                 this.movies = data['movies'].map(x =>
                     Object.assign(new MovieModel(), x)
                 );
+                this.showProgress = false;
             },
             (e) => {
                 console.log(e);

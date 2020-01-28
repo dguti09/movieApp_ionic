@@ -16,8 +16,7 @@ export class SearchTabPage {
 
     constructor(private moviesProvider: MoviesMagnamentProvider, private seriesService: SeriesService) {
         // this.loadPage();
-        this.showProgress = false;
-        this.seriesService.componentMethodCalled$.subscribe( () => {
+        this.seriesService.componentMethodCalled$.subscribe(() => {
                 console.log('llamado desde el switch 2 ');
                 this.searchMovie(this.textSearch);
             }
@@ -46,7 +45,6 @@ export class SearchTabPage {
                 );
             } else {
                 this.movies = [];
-                this.showProgress = false;
             }
         }
 
