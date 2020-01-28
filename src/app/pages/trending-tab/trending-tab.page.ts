@@ -14,10 +14,14 @@ export class TrendingTabPage implements OnInit {
     tvIsEnable: boolean;
     eventWeekOrDay = '1';
     showProgress: boolean;
+    selectedColorDay: string;
+    selectedColorWeek: string;
 
     constructor(private moviesProvider: MoviesMagnamentProvider, private seriesService: SeriesService) {
         this.tvIsEnable = seriesService.tvIsEnableService;
         this.getDay();
+        this.selectedColorDay = 'white'
+        this.selectedColorWeek = 'dark'
         this.seriesService.componentMethodCalled$.subscribe( () => {
                 console.log('llamado desde el switch');
                 this.showProgress = true;
@@ -31,9 +35,13 @@ export class TrendingTabPage implements OnInit {
         this.showProgress = true;
         if (event.detail.value === '1') {
             this.eventWeekOrDay = '1';
+            this.selectedColorDay = 'white'
+            this.selectedColorWeek = 'dark'
             this.getDay();
         } else if (event.detail.value === '2') {
             this.eventWeekOrDay = '2';
+            this.selectedColorDay = 'dark'
+            this.selectedColorWeek = 'white'
             this.getWeek();
         }
     }

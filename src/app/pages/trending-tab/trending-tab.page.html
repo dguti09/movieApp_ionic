@@ -5,11 +5,11 @@
                 <ion-col size="7">
                     <ion-segment (ionChange)="changeButton($event)" color="medium">
                         <ion-segment-button checked value="1">
-                            <ion-label color="medium">Diario</ion-label>
+                            <ion-label [ngStyle]="{ 'color': selectedColorDay }" color="medium">Diario</ion-label>
                             <ion-icon name="md-clock"></ion-icon>
                         </ion-segment-button>
                         <ion-segment-button value="2">
-                            <ion-label color="medium">Semanal</ion-label>
+                            <ion-label [ngStyle]="{ 'color': selectedColorWeek }" color="medium">Semanal</ion-label>
                             <ion-icon name="md-calendar"></ion-icon>
                         </ion-segment-button>
                     </ion-segment>
