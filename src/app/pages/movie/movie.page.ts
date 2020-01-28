@@ -48,7 +48,7 @@ export class MoviePage implements OnInit {
 
     async addToSee() {
         this.addToSeeSuccess = false;
-        const userId = await this.storage.get('userId');
+        /*const userId = await this.storage.get('userId');
         this.router.params.subscribe(idMovie => {
             console.log(`add to See: ${JSON.stringify(idMovie)}`);
 
@@ -57,14 +57,15 @@ export class MoviePage implements OnInit {
                 console.log(`response add to See -> ${JSON.stringify(response)}`);
                 this.addToSeeSuccess = true;
             });
-        });
+        });*/
+        alert(' proximamente '); this.addToSeeSuccess = true;
         this.addToSeeSuccess = false;
     }
 
     async addToFavorite() {
 
         this.addToFavoriteSuccess = false;
-        const userId = await this.storage.get('userId');
+/*        const userId = await this.storage.get('userId');
         this.router.params.subscribe(idMovie => {
             console.log(`add to favorite: ${JSON.stringify(idMovie)}`);
             const auxMovieId: number = idMovie.id;
@@ -72,7 +73,8 @@ export class MoviePage implements OnInit {
                console.log(`response add to favorite -> ${JSON.stringify(response)}`);
                this.addToFavoriteSuccess = true;
             });
-        });
+        });*/
+        alert(' proximamente '); this.addToFavoriteSuccess = true;
 
         this.addToFavoriteSuccess = false;
 
