@@ -1,4 +1,4 @@
-<div (click)="goToMovie(movie.id)" *ngFor="let movie of movies" class="ion-padding-horizontal">
+<div (click)="goToMovie(movie.id , movie.context)" *ngFor="let movie of movies" class="ion-padding-horizontal">
   <ion-card color="dark">
     <ion-card-title>
       <ion-item color="dark">

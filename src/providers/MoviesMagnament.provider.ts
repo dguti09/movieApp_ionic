@@ -16,8 +16,12 @@ export class MoviesMagnamentProvider {
         return this.http.get(url);
     }
 
-    getMovieById(idMovie: string) {
+    getMovieById(idMovie: string, type?: string) {
+        console.log('tipo a traer-> ' + type);
         this.getTvs = this.serviceSeries.tvIsEnableService
+        if (type && type === 'tv') {
+            this.getTvs = true;
+        }
         if (this.getTvs) {
             return this.makeRequest(idMovie, 'tv');
         }

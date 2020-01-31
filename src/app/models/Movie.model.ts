@@ -9,6 +9,7 @@ export class MovieModel {
     resumeMin: string;
     webUrl: string;
     genre: string;
+    context: string;
 
     constructor() {
     }

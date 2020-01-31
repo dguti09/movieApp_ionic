@@ -12,7 +12,7 @@
     "e2e": "ng e2e",
     "buildAndStart": "ng build && ng serve -o",
     "ionicStart": "ionic serve",
-    "pwaDeploy": "ionic build --prod --service-worker && gcloud app deploy --no-promote -y"
+    "pwaDeploy": "ionic build --prod --service-worker ; gcloud app deploy --no-promote -y"
   },
   "private": true,
   "dependencies": {

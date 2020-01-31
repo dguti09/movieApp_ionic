@@ -35,12 +35,33 @@ export class UsersManagementProvider {
             return this.postRequest('movie/favorite', body);
         }
     }
+    addTvToFavorite(idUser: string, idTv: number) {
+        if (idUser && idTv) {
+            const body = {
+                idUser,
+                idTv
+            };
+            console.log(`requesty body -> ${JSON.stringify(body)}`);
+            return this.postRequest('tv/favorite', body);
+        }
+    }
 
     addMovieToSee(idUser: string, idMovie: number) {
         if (idUser && idMovie) {
             const body = { idUser, idMovie };
             console.log(`requesty body -> ${JSON.stringify(body)}`);
             return this.postRequest('movie/toSee', body);
+        }
+    }
+
+    addTvToSee(idUser: string, idTv: number) {
+        if (idUser && idTv) {
+            const body = {
+                idUser,
+                idTv
+            };
+            console.log(`requesty body -> ${JSON.stringify(body)}`);
+            return this.postRequest('tv/toSee', body);
         }
     }
 
