@@ -3,14 +3,14 @@
         <ion-grid>
             <ion-row>
                 <ion-col size="7">
-                    <ion-segment (ionChange)="changeButton($event)" color="medium">
-                        <ion-segment-button checked value="1">
-                            <ion-label [ngStyle]="{ 'color': selectedColorDay }" color="medium">Diario</ion-label>
-                            <ion-icon name="md-clock"></ion-icon>
+                    <ion-segment ngModel="segment" (ionChange)="changeButton($event)" color="dark">
+                        <ion-segment-button value="1">
+                            <ion-label [ngStyle]="{ 'color': selectedColorDay }" color="white" value="day">Diario</ion-label>
+                            <ion-icon [ngStyle]="{ 'color': selectedColorDay }"  name="time-outline"></ion-icon>
                         </ion-segment-button>
                         <ion-segment-button value="2">
-                            <ion-label [ngStyle]="{ 'color': selectedColorWeek }" color="medium">Semanal</ion-label>
-                            <ion-icon name="md-calendar"></ion-icon>
+                            <ion-label [ngStyle]="{ 'color': selectedColorWeek }" color="white" value="week">Semanal</ion-label>
+                            <ion-icon  [ngStyle]="{ 'color': selectedColorWeek }" name="calendar-outline"></ion-icon>
                         </ion-segment-button>
                     </ion-segment>
                 </ion-col>
